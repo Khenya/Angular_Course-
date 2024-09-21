@@ -10,7 +10,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title:number = 10;
-
+  
   constructor(){
    console.log('subtract ', this.subtract(8,4))
   }
@@ -23,4 +23,11 @@ export class AppComponent {
     return num1 - num2
   }
 
+  
+  public getArray(): void{
+    const persons: number[] = [1, 2, 3, 4, 5, 6].filter(person => person % 2 === 0);
+    for (let index = 0; index < persons.length; index++) {
+      console.log('person = ', persons[index]);
+    }
+  }
 }
