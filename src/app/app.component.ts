@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
+import { UserCardComponent } from './user-card/user-card.component';
 interface IPerson {
   name:string
   lastName: string
@@ -10,7 +10,7 @@ interface IPerson {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, UserCardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -26,6 +26,9 @@ export class AppComponent {
   students: number[] = [1,2,3,4,5,6]
   parents: number[] = [7,8,9,10]
 
+  var1 = 0
+  var2 = null
+  var3 = 'hola'
 
   constructor(){
     const {name,age} = this.person
@@ -33,6 +36,8 @@ export class AppComponent {
     let both = [...this.students,...this.parents]
     console.log('spreed operator: ', both)
     console.log('REST operator: ', this.sum(2,4,6))
+    console.log('Nullish Coalesing:',  this.var2 ?? this.var3  )
+    console.log('OR:', this.var2 || this.var1)
     // console.log('subtract ', this.subtract(8,4))
 
     // console.log('MAP:', this.animals.map( (animal:string) => ( animal + 'new')    ))
