@@ -1,0 +1,16 @@
+<div class="calculator-container">
+    <div class="calculator">
+      <p>CALCULATOR</p>
+      <input type="text" [(ngModel)]="box1value">
+      <input type="text" [(ngModel)]="box2value">
+      <div class="buttons-container">
+        <button class="sum" (click)="onSum()">SUM</button>
+        <button class="mul" (click)="onMul()">MUL</button>
+        <button class="reset" (click)="onReset()">RESET</button>
+        
+      </div>
+    </div>
+  
+    <history [history]="history"></history>
+  </div>
+  
