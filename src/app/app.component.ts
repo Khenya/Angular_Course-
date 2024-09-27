@@ -70,4 +70,8 @@ export class AppComponent {
       console.log('person = ', persons[index])
     }
   }
+
+  public receiveData(data:any){
+    console.log('Print in father component: ', data)
+  }
 }

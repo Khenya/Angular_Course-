@@ -5,3 +5,8 @@
 <p>Only Pares {{ getArray() }}</p>
 
 <user-card name="Brenda" [email]="'brenda@gmail.com'"></user-card>
+<user-card
+    name = "Brenda"
+    [email]="'brenda@gmail.com'"
+    (sendData)="receiveData($event)"
+/>
