@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { UserCardComponent } from './user-card/user-card.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { CommonModule } from '@angular/common';
 
 interface IPerson {
   name:string
@@ -12,10 +13,11 @@ interface IPerson {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, UserCardComponent, CalculatorComponent],
+  imports: [RouterOutlet, UserCardComponent, CalculatorComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent {
   result:number = 0;
   title:number = 10;
@@ -70,7 +72,7 @@ export class AppComponent {
   public getArray(): void{
     const persons: number[] = [1, 2, 3, 4, 5, 6].filter(person => person % 2 === 0)
     for (let index = 0; index < persons.length; index++) {
-      console.log('person = ', persons[index])
+      // console.log('person = ', persons[index])
     }
   }
 
