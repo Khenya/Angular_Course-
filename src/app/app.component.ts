@@ -20,6 +20,7 @@ interface IPerson {
 })
 
 export class AppComponent {
+  userCardCreated: boolean = true
   result:number = 0;
   title:number = 10;
   animals: string[] = ["a", "s", "d", "f", "g", "h"]
@@ -54,12 +55,12 @@ export class AppComponent {
 
   constructor(){
     const {name,age} = this.person
-    console.log('desestructuracion: ', name, age)
+    // console.log('desestructuracion: ', name, age)
     let both = [...this.students,...this.parents]
-    console.log('spreed operator: ', both)
-    console.log('REST operator: ', this.sum(2,4,6))
-    console.log('Nullish Coalesing:',  this.var2 ?? this.var3  )
-    console.log('OR:', this.var2 || this.var1)
+    // console.log('spreed operator: ', both)
+    // console.log('REST operator: ', this.sum(2,4,6))
+    // console.log('Nullish Coalesing:',  this.var2 ?? this.var3  )
+    // console.log('OR:', this.var2 || this.var1)
     // console.log('subtract ', this.subtract(8,4))
 
     // console.log('MAP:', this.animals.map( (animal:string) => ( animal + 'new')    ))
