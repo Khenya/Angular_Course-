@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from "@angular/core";
 
 @Component({
   selector: 'user-card',
@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angu
   templateUrl: './user-card.component.html',
   styleUrl: './user-card.component.scss'
 })
-export class UserCardComponent implements OnInit, OnDestroy {
+export class UserCardComponent implements OnInit, OnDestroy, OnChanges {
 
   @Input() name:string = ''
   @Input() email:string = ''
@@ -28,6 +28,13 @@ export class UserCardComponent implements OnInit, OnDestroy {
     console.log('user card Destroy')  
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('CHANGES:', changes)
+
+    this.password = changes['name'].currentValue + ' ' + changes['email'].currentValue + ' PASSWORD'
+
+  }
+  
   public onSendData(){
     //console.log('onSendData in child')
     this.sendData.emit('Hi from child component')
