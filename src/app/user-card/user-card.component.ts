@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,16 +8,25 @@ import { CommonModule } from '@angular/common';
   templateUrl: './user-card.component.html',
   styleUrl: './user-card.component.scss'
 })
-export class UserCardComponent {
+export class UserCardComponent implements OnInit {
 
   @Input() name:string = ''
   @Input() email:string = ''
 
   @Output() sendData = new EventEmitter()
 
+  constructor (){
+    console.log('user card constructor')
+  }
+
+  ngOnInit(): void {
+    console.log('user card on init')
+  }
+
   public onSendData(){
     //console.log('onSendData in child')
     this.sendData.emit('Hi from child component')
   }
+
 
 }

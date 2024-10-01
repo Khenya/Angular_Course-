@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { UserCardComponent } from './user-card/user-card.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { CommonModule } from '@angular/common';
+import { PersonComponent } from './person/person.component';
 
 interface IPerson {
   name:string
@@ -13,7 +14,7 @@ interface IPerson {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, UserCardComponent, CalculatorComponent, CommonModule],
+  imports: [RouterOutlet, UserCardComponent, CalculatorComponent, CommonModule, PersonComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -28,6 +29,22 @@ export class AppComponent {
     lastName: 'Alvarado',
     age: 22
   }
+
+  females:number=0
+  males:number=0
+  discounts:number=0
+  persons:any[]=[
+    {gender:0,name:"Brenda Alvarado",age:22},
+    {gender:0,name:"Anita Arce",age:12},
+    {gender:1,name:"Luis Choque",age:43},
+    {gender:0,name:"Brenda Choque",age:32},
+    {gender:0,name:"Maribel Conde",age:18},
+    {gender:1,name:"Juan Mendonza",age:4},
+    {gender:1,name:"Daniel Camacho",age:22},
+    {gender:1,name:"Javier Ticona",age:52},
+    {gender:0,name:"Khenya Mamni",age:26},
+    {gender:1,name:"Manuel Lopez",age:53}]
+
   students: number[] = [1,2,3,4,5,6]
   parents: number[] = [7,8,9,10]
 
@@ -50,7 +67,19 @@ export class AppComponent {
     // console.log('FIND', this.animals.find((animal)=>  animal === 'z'))
     // console.log('FILTER', this.animals.filter((animal)=>  animal === 'z'))
     // console.log('INDEXOF', this.animals.indexOf('c'))
+  
+    this.calculateTotals()
   }
+  public calculateTotals() {
+    this.females = this.persons.filter(p => p.gender === 0).length;
+    this.males = this.persons.filter(p => p.gender === 1).length;
+    this.discounts = this.persons.filter(p => p.age > 18).length;
+  }
+  public deleteDiscounts() {
+    this.persons = this.persons.filter(p => p.age <= 18);
+    this.calculateTotals();
+  }
+
   public sum(...persons:number[]){
     return persons[0]+persons[1]
   }

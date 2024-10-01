@@ -1,0 +1,12 @@
+<div class="person-card" [style.border]="person.age > 18 ? '1px solid darkslategrey' : '0px solid #fff'">
+    <p>Name: {{ person.name }}</p>
+    @switch(person.gender){
+        @case(0){<p>Gender: Female</p>}
+        @case(1){<p>Gender: Male</p>}
+        @default{<p>Gender: Other/Unknown</p>}
+    }
+    <p>Age: {{ person.age }}</p>
+    @if(person.age>18){
+        <p [style.color]="'darkslategrey'">Gets Discount</p>
+    }
+</div>
