@@ -5,6 +5,8 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import { CommonModule } from '@angular/common';
 import { PersonComponent } from './person/person.component';
 import { CounterComponent } from './counter/counter.component';
+import { filter, from, map, tap } from "rxjs";
+
 interface IPerson {
   name:string
   lastName: string
@@ -56,6 +58,8 @@ export class AppComponent {
   var2 = null
   var3 = 'hola'
 
+  youtube = from([1,2,3,4,5,6,])
+
   constructor(){
     const {name,age} = this.person
     // console.log('desestructuracion: ', name, age)
@@ -72,7 +76,11 @@ export class AppComponent {
     // console.log('FILTER', this.animals.filter((animal)=>  animal === 'z'))
     // console.log('INDEXOF', this.animals.indexOf('c'))
   
-    this.calculateTotals()
+    this.youtube.subscribe((res) => {
+      console.log('SUBCRIBER 1: ', res);
+    })
+
+    // this.calculateTotals()
   }
   public calculateTotals() {
     this.females = this.persons.filter(p => p.gender === 0).length;
@@ -116,5 +124,24 @@ export class AppComponent {
   public onResult(event:any){
     console.log('event from child:', event)
     this.result = event ?? 0
+  }
+
+  addVideo() {
+    this.youtube
+      .pipe(
+        map((res: number) => {
+          //console.log("MAP OPERATOER RXJS: ", res);
+          if (res % 2 === 0) {
+            return res;
+          } else {
+            return null
+          }
+        }),
+        tap((res)  => {console.log('VALUE: ', res)}),
+        filter((res: number | null) => res !== null),
+      )
+      .subscribe((res) => {
+        console.log("SUSCRIBER 2: ", res);
+      });
   }
 }
