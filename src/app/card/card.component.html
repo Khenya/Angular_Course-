@@ -1,0 +1,13 @@
+<div class="card" *ngIf="person">
+    <h2>{{ person.name }} {{ person.lastName }}</h2>
+    <p>Tipo: {{ person.type }}</p>
+    <p>País: {{ person.country }}</p>
+    <p>Address: {{ person.address.street }} {{ person.address.number }}, {{ person.province }}, {{ person.country }}</p>
+  
+    <div>
+      <h3>Messages</h3>
+      <ul>
+        <li *ngFor="let message of person.messages">{{ message }}</li>
+      </ul>
+    </div>
+</div>

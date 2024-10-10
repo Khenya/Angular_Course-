@@ -1,0 +1,10 @@
+<div class="item-container">
+  
+  <div *ngFor="let person of people" >
+    <app-item
+      [person]="person"
+      (select)="select(person)"
+      (delete)="delete(person)"
+    />
+  </div>
+</div>

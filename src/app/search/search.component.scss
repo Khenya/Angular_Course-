@@ -1,0 +1,33 @@
+.search-container {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    border: 1px solid black;
+    width: 350px; 
+}
+  
+.search-input {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 70%; 
+    margin-right: 10px;
+    height: 18px;
+}
+  
+.search-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
+    transition: background-color 0.3s;
+    border: 1px solid black;
+    width: 25%; 
+    height: 40px;
+}
+  
+ 
+  
