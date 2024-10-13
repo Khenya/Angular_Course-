@@ -1,13 +1,32 @@
-<div class="card" *ngIf="person">
-    <h2>{{ person.name }} {{ person.lastName }}</h2>
-    <p>Tipo: {{ person.type }}</p>
-    <p>País: {{ person.country }}</p>
-    <p>Address: {{ person.address.street }} {{ person.address.number }}, {{ person.province }}, {{ person.country }}</p>
-  
-    <div>
-      <h3>Messages</h3>
-      <ul>
-        <li *ngFor="let message of person.messages">{{ message }}</li>
-      </ul>
-    </div>
+<div class="card" *ngIf="person" [ngClass]="{
+  'personal-card': activeSection === 'personal',
+  'geographic-card': activeSection === 'geographic',
+  'messages-card': activeSection === 'messages'
+}">
+
+  <div>
+    <button class="personal-card" (click)="showSection('personal')">Personal</button>
+    <button class="geographic-card" (click)="showSection('geographic')">Geographic</button>
+    <button class="messages-card" (click)="showSection('messages')">Messages</button>
+  </div>
+
+  <div *ngIf="activeSection === 'personal'">
+    <p>Name: {{ person.name }}</p>
+    <p>LastName: {{ person.lastName }}</p>
+    <p>Type: {{ person.type }}</p>
+    <p *ngIf="person.type === 'professor'">Subject: {{ person.subject }}</p>
+  </div>
+
+  <div *ngIf="activeSection === 'geographic'">
+    <p>Address: {{ person.address.street }} {{ person.address.number }}</p>
+    <p>Country: {{ person.country }}</p>
+    <p>Province: {{ person.province }}</p>
+  </div>
+
+  <div *ngIf="activeSection === 'messages'">
+    <app-search (search)="filterMessages($event)"></app-search>
+    <ul>
+      <li *ngFor="let message of filteredMessages">{{ message }}</li>
+    </ul>
+  </div>
 </div>

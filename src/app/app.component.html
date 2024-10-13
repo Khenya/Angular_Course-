@@ -1,11 +1,14 @@
 <div>
     <app-search (search)="filterPeople($event)"/>
-
-    <app-list
-        [people]="filteredPeople"
-        (selectPerson)="selectPerson($event)"
-        (deletePerson)="deletePerson($event)"
-    />
-
-    <app-card *ngIf="selectedPerson" [person]="selectedPerson"/>
+    <div class="container">
+        <div class="list-wrapper">
+            <app-list
+                [people]="filteredPeople"
+                (selectPerson)="selectPerson($event)"
+                (deletePerson)="deletePerson($event)"
+            />
+        </div>
+        
+        <app-card *ngIf="selectedPerson" [person]="selectedPerson"/>
+    </div>
 </div>
