@@ -8,6 +8,8 @@ import { CounterComponent } from './counter/counter.component';
 import { filter, from, map, tap } from "rxjs";
 import { AppColorsDirective } from "./app-colors.directive";
 import { CreateHtmlDirective } from "./create-html.directive";
+import { PurePipe } from "./pure.pipe";
+import { ImpurePipe } from "./impure.pipe";
 
 interface IPerson {
   name:string
@@ -18,7 +20,7 @@ interface IPerson {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, UserCardComponent, CalculatorComponent, CommonModule, PersonComponent, CounterComponent, AppColorsDirective, CreateHtmlDirective],
+  imports: [RouterOutlet, UserCardComponent, CalculatorComponent, CommonModule, PersonComponent, CounterComponent, AppColorsDirective, CreateHtmlDirective, PurePipe, ImpurePipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -84,6 +86,19 @@ export class AppComponent {
 
     // this.calculateTotals()
   }
+  
+  public sumPure(a:number, b:number): number {
+    return a + b;
+  }
+
+  public sumImpure(a:number, b:number): number {
+    return a + b + Math.random();
+  }
+
+  public addNumber() {
+    this.students = [...this.students, 12]
+  }
+
   public calculateTotals() {
     this.females = this.persons.filter(p => p.gender === 0).length;
     this.males = this.persons.filter(p => p.gender === 1).length;

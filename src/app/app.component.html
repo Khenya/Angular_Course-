@@ -1,85 +1,16 @@
-<!-- <h1>Hello, {{ title + 2 }}</h1>
-<p>Add {{ sum(3,5) }}</p>
-<p>Subtract {{ subtract(9,5) }}</p> 
+<p>PIPES</p>
 
-<p>Only Pares {{ getArray() }}</p> -->
+<P> {{ users | json }} </P>
+<p> {{ 'juan' | uppercase }} </p>
+<p> {{ 'JUAN' | lowercase }} </p>
+<p> {{ 'hola mundo' | titlecase }}</p>
+<p> {{ 'Tue Oct 27 15:35:08 CDT 2009' | date: 'dd/MM/YYYY'  }} </p>
 
-<!-- <user-card name="Brenda" [email]="'brenda@gmail.com'" (sendData)="receiveData($event)">
-    <p>My HTML from father</p>
-    <button>My button from father</button>
-</user-card> -->
-<!-- <button (click)="userCardCreated = !userCardCreated">create and destroy user card</button> -->
-<!-- 
-<button (click)="selectedUser = users[0]">change to user 0</button>
-<button (click)="selectedUser = users[1]">change to user 1</button> -->
-
-@if(userCardCreated) {
-  <user-card [name]="selectedUser.name" [email]="selectedUser.email" (sendData)="receiveData($event)">
-    <p>My HTML from father</p>
-    <button>My button from father</button>
-  </user-card>
-} @else {
-  <p>user card destroyed</p>
-}
-<button (click)="addVideo()">add new video to youtube</button>
-<button (click)="userCardCreated = !userCardCreated">change userCardCreated</button>
-{{ userCardCreated }}
-<div *ngCreateHtml="userCardCreated" (sendMessage)="getColor($event)">
-  <p>MY CUSTON STRUCTURAL DIRECTIVE</p>
-  <p> EXAMPLE </p>
-</div>
-<!-- 
-<p>RESULT: {{result}}</p>
-<calculator (sum)="onResult($event)" (mul)="onResult($event)" (reset)="onResult($event)">
-</calculator>
-
-<p *ngIf="var1 === var2; else elseold"> variables are equals </p>
-<ng-template #elseold>
-    <p>old, result is false</p>
-</ng-template>
+<p> MY FISRT PIPE PURE </p>
+<p>{{ students | pure }}</p>
+<p> MY FIRST PIPE IMPURE</p>
+<p>{{ students | impure }}</p>
 
 
-@if(var1 === var2) {
-   <p> new Sintax, variables are equals </p> 
-} @else {
-   <p> new Sintax, is false</p> 
-}
-
-<p *ngFor="let item of ['a','b','c','d']; let i = index">
-    old for, value: {{item}}, index: {{i}}
-</p>
-
-@for(item of ['a','b','c','d']; track item){
-    <p>New Syntax Student: {{item}}</p>
-  }
-
-  <div [ngSwitch]="var1">
-    <p *ngSwitchCase="0">var is 0</p>
-    <p *ngSwitchCase="1">var is 1</p>
-    <p *ngSwitchDefault>default value</p>
-  </div>
-
-  @switch(var1) {
-    @case(0) { <p>new syntax, var is 0</p> }
-    @case(1) { <p>new syntax, var is 1</p> }
-    @default { <p>new syntax, default</p> }
-  }
-
-  <div class="container">
-    <div class ="column">
-      @for(person of persons; track person){
-        <person [person]="person"></person>
-      }
-    </div>
-    <div class ="column">
-      <div class="column-box">Total female gender: {{females}}</div>
-      <div class="column-box">Total male gender: {{males}}</div>
-      <div class="column-box">Total discounts: {{discounts}}</div>
-      <div class="column-box-button" (click)="deleteDiscounts()">Delete People With Discounts</div>
-    </div>
-  </div>
-
-  <counter></counter>
-
-  <button (click)="var1 = var1 + 1"> Increment Var1 </button>
-  <p>{{ var1 }}</p> -->
+<button (click)="students.push(12)">add neew number</button>
+<button (click)="addNumber()">add neew number in ts</button>
