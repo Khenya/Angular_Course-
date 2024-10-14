@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { PersonComponent } from './person/person.component';
 import { CounterComponent } from './counter/counter.component';
 import { filter, from, map, tap } from "rxjs";
+import { AppColorsDirective } from "./app-colors.directive";
 
 interface IPerson {
   name:string
@@ -16,7 +17,7 @@ interface IPerson {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, UserCardComponent, CalculatorComponent, CommonModule, PersonComponent, CounterComponent],
+  imports: [RouterOutlet, UserCardComponent, CalculatorComponent, CommonModule, PersonComponent, CounterComponent, AppColorsDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -105,6 +106,10 @@ export class AppComponent {
   //   return num1 + num2
   // }
 
+  public getColor(value:string): void {
+    console.log("value: ", value);
+  }
+  
   private subtract(num1: number, num2: number):number{
     return num1 - num2
   }
