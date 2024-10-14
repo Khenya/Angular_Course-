@@ -7,6 +7,7 @@ import { PersonComponent } from './person/person.component';
 import { CounterComponent } from './counter/counter.component';
 import { filter, from, map, tap } from "rxjs";
 import { AppColorsDirective } from "./app-colors.directive";
+import { CreateHtmlDirective } from "./create-html.directive";
 
 interface IPerson {
   name:string
@@ -17,7 +18,7 @@ interface IPerson {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, UserCardComponent, CalculatorComponent, CommonModule, PersonComponent, CounterComponent, AppColorsDirective],
+  imports: [RouterOutlet, UserCardComponent, CalculatorComponent, CommonModule, PersonComponent, CounterComponent, AppColorsDirective, CreateHtmlDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
