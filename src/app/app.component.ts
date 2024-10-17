@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink  } from '@angular/router';
 import { UserCardComponent } from './user-card/user-card.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { CommonModule } from '@angular/common';
@@ -22,7 +22,7 @@ interface IPerson {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, UserCardComponent, CalculatorComponent, CommonModule, PersonComponent, CounterComponent, AppColorsDirective, CreateHtmlDirective, PurePipe, ImpurePipe, MatCardModule, MatButtonModule],
+  imports: [RouterOutlet,RouterLink , UserCardComponent, CalculatorComponent, CommonModule, PersonComponent, CounterComponent, AppColorsDirective, CreateHtmlDirective, PurePipe, ImpurePipe, MatCardModule, MatButtonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
