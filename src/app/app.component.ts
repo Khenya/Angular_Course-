@@ -8,12 +8,13 @@ import { data, socialNetworks } from './data';
   standalone: true,  
   imports: [CommonModule, UserComponent],  
   templateUrl: './app.component.html',
-   styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss'
 })
 
 export class AppComponent {
   users = Object.values(data); 
   socialNetworks = socialNetworks;
+  selectedUser: any = null;
 
   addNotification(platformId: number) {
     const platform = this.socialNetworks.find((p) => p.id === platformId);
@@ -31,5 +32,13 @@ export class AppComponent {
         }
       }
     });
+  }
+
+  showUserDetails(user: any) {
+    this.selectedUser = user;
+  }
+
+  showNotifications(user: any) {
+    alert(user.notifications.join('\n'));
   }
 }

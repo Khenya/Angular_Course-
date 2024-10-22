@@ -45,11 +45,29 @@
 }
 
 .tiktok-button {
-    background-color: #e6ccff; 
+    background-color: #e6ccff;
     border: 1px solid purple;
 }
 
 .facebook-button {
-    background-color: #cce6ff;
+    background-color: #cce6ff; 
     border: 1px solid lightblue;
+}
+
+.user-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    border: 2px solid black;
+    padding: 20px;
+    margin: 10px;
+    height: 250px;
+}
+
+.card-buttons {
+    display: flex;
+    margin-top: 10px;
 }
