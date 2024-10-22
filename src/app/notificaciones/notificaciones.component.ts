@@ -8,6 +8,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './notificaciones.component.html',
   styleUrl: './notificaciones.component.scss'
 })
+
 export class NotificacionesComponent {
   @Input() notifications: any[] = [];
+  @Input() socialNetworks: any[] = [];
+
+  getNotificationClass(notification: string): string {
+    const platform = this.socialNetworks.find(sn => notification.includes(sn.platform));
+    if (platform) {
+      return `${platform.platform}-notification`;
+    }
+    return '';
+  }
 }

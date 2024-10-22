@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';  
 import { UserComponent } from './user/user.component';
-import { data, socialNetworks } from './data';
 import { NotificacionesComponent } from './notificaciones/notificaciones.component';
+import { data, socialNetworks } from './data';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,8 @@ import { NotificacionesComponent } from './notificaciones/notificaciones.compone
   imports: [CommonModule, UserComponent, NotificacionesComponent],  
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
-})  
+})
+
 export class AppComponent {
   users = Object.values(data); 
   socialNetworks = socialNetworks;

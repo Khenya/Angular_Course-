@@ -1,6 +1,7 @@
 <div *ngIf="notifications.length > 0">
-    <ul>
-     
-    </ul>
-  </div>
-  
+  <ul>
+    <li *ngFor="let notification of notifications" [ngClass]="getNotificationClass(notification)">
+      {{ notification }}
+    </li>
+  </ul>
+</div>
