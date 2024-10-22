@@ -1,11 +1,13 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-notification-card',
+  selector: 'app-notificaciones',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './notificaciones.component.html',
   styleUrl: './notificaciones.component.scss'
 })
-export class NotificationCardComponent {
-  @Input() message: string = '';
-  @Input() color: string = '';
+export class NotificacionesComponent {
+  @Input() notifications: any[] = [];
 }

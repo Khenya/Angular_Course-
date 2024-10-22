@@ -2,19 +2,20 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';  
 import { UserComponent } from './user/user.component';
 import { data, socialNetworks } from './data';
+import { NotificacionesComponent } from './notificaciones/notificaciones.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,  
-  imports: [CommonModule, UserComponent],  
+  imports: [CommonModule, UserComponent, NotificacionesComponent],  
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
-})
-
+})  
 export class AppComponent {
   users = Object.values(data); 
   socialNetworks = socialNetworks;
   selectedUser: any = null;
+  selectedNotifications: any[] = [];
 
   addNotification(platformId: number) {
     const platform = this.socialNetworks.find((p) => p.id === platformId);
@@ -36,9 +37,11 @@ export class AppComponent {
 
   showUserDetails(user: any) {
     this.selectedUser = user;
+    this.selectedNotifications = [];
   }
 
   showNotifications(user: any) {
-    alert(user.notifications.join('\n'));
+    this.selectedUser = user;
+    this.selectedNotifications = user.notifications;
   }
 }

@@ -33,6 +33,9 @@
                 <div *ngIf="selectedUser && selectedUser.user_id === user.user_id">
                     <app-user [user]="selectedUser"></app-user>
                 </div>
+                <div *ngIf="selectedNotifications && selectedUser.user_id === user.user_id">
+                    <app-notificaciones [notifications]="selectedNotifications"></app-notificaciones>
+                </div>
             </div>
         </div>
     </div>
