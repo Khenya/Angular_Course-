@@ -1,6 +1,6 @@
 <div >
     <button *ngFor="let network of socialNetworks" (click)="addNotification(network.id)">
-        add new {{ network.type }} - {{ network.platform }}
+        add new {{ network.type }} 
         <span *ngIf="network.platformType === 'premium'">⭐</span>
     </button>
 </div>

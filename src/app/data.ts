@@ -6,12 +6,6 @@ export const socialNetworks = [
         platformType: 'free'
     },
     {
-        id: 2,
-        platform: 'facebook',
-        type: 'story',
-        platformType: 'free'
-    },
-    {
         id: 3,
         platform: 'tiktok',
         type: 'video',
@@ -20,6 +14,12 @@ export const socialNetworks = [
     {
         id: 4,
         platform: 'instagram',
+        type: 'story',
+        platformType: 'free'
+    },
+    {
+        id: 2,
+        platform: 'facebook',
         type: 'story',
         platformType: 'free'
     },
