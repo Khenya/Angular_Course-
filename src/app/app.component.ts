@@ -8,7 +8,7 @@ import { data, socialNetworks } from './data';
   standalone: true,  
   imports: [CommonModule, UserComponent],  
   templateUrl: './app.component.html',
-  
+   styleUrl: './app.component.scss'
 })
 
 export class AppComponent {

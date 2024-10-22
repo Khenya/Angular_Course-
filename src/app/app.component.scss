@@ -1,0 +1,55 @@
+.container {
+    margin: 50px;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.btn {
+    margin-bottom: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+}
+
+.premium-icon {
+    margin-left: 5px;
+}
+
+.button {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    width: 150px;
+    height: 60px;
+}
+
+.youtube-button {
+    background-color: #ffcccc; 
+    border: 1px solid red;
+}
+
+.instagram-button {
+    background-color: #ffffcc; 
+    border: 1px solid yellow;
+}
+
+.whatsapp-button {
+    background-color: #ccffcc; 
+    border: 1px solid green;
+}
+
+.tiktok-button {
+    background-color: #e6ccff; 
+    border: 1px solid purple;
+}
+
+.facebook-button {
+    background-color: #cce6ff;
+    border: 1px solid lightblue;
+}

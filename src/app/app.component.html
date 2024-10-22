@@ -1,10 +1,31 @@
-<div >
-    <button *ngFor="let network of socialNetworks" (click)="addNotification(network.id)">
-        add new {{ network.type }} 
-        <span *ngIf="network.platformType === 'premium'">⭐</span>
-    </button>
+<div class="container">
+    <div class="button-container">
+        <button class="btn btn-primary" *ngFor="let network of socialNetworks" (click)="addNotification(network.id)">
+            Add new {{ network.type }}
+        </button>
+    </div>
+
+    <div class="button-container">
+        <button class="button" 
+                *ngFor="let network of socialNetworks" 
+                (click)="addNotification(network.id)"
+                [ngClass]="{
+                    'youtube-button': network.platform === 'youtube',
+                    'instagram-button': network.platform === 'instagram',
+                    'whatsapp-button': network.platform === 'whatsapp',
+                    'tiktok-button': network.platform === 'tiktok',
+                    'facebook-button': network.platform === 'facebook'
+                }">
+            {{ network.platform }}
+            <span *ngIf="network.platformType === 'premium'" class="premium-icon">⭐</span>
+        </button>
+    </div>
 </div>
 
-<div>
-    <app-user *ngFor="let user of users" [user]="user"></app-user>
+<div class="row">
+    <div class="col-md-12">
+        <div class="user-container">
+            <app-user *ngFor="let user of users" [user]="user"></app-user>
+        </div>
+    </div>
 </div>
