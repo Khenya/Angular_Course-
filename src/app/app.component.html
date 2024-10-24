@@ -36,6 +36,28 @@
         <input type="text" ngModel name="phoneF">
         <button type="submit">send data</button>
         <button type="reset">reset</button>
+
+        <p>REACTIVE FORM</p>
+        <input type="text" [formControl]="scoreControl">
+        <button (click)="onPrintScore()">print score</button>
+
+        <p>FORM GROUP</p>
+        <form [formGroup]="studentForm">
+          <p>name</p>
+          <input type="text" [formControlName]="'name'">
+          <p>score</p>
+          <input type="text" [formControlName]="'score'">
+          <p>school</p>
+          <input type="text" [formControlName]="'school'">
+          <p>proffesor</p>
+          <input type="text" [formControlName]="'proffesor'">
+          <p>university</p>
+          <input type="text" [formControlName]="'university'">
+        </form>
+        <button (click)="onSendData()"
+        [disabled]="studentForm.invalid">send data</button>
+
+
       </form>
     </mat-card-content>
     <mat-card-actions>
@@ -47,7 +69,6 @@
   <h1 class="text-sm font-bold underline text-red-800">
     Hello world TAILWIND
   </h1>
-
 
   <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Email address</label>

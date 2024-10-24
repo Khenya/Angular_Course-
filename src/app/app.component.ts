@@ -11,7 +11,7 @@ import { PurePipe } from "./pure.pipe";
 import { ImpurePipe } from "./impure.pipe";
 import {MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from "@angular/material/button";
-import { FormsModule } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
 
 interface IPerson {
   name: string;
@@ -35,14 +35,20 @@ interface IPerson {
     ImpurePipe,
     MatCardModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
 })
 export class AppComponent {
+
+  scoreControl = new FormControl<string>('asdasdasd', [Validators.required])
+
   name:string = 'testName'
   lastName:string = ''
+
+
   users = [
     { name: "abc", email: "abc@gmail.com" },
     { name: "dfg", email: "dfg@gmail.com" },
@@ -69,13 +75,38 @@ export class AppComponent {
 
   youtube = from([1, 2, 3, 4, 5, 6]);
 
-  constructor(private router: Router) {
+  studentForm!: FormGroup
+
+  constructor(
+    private router: Router, 
+    private formBuilder: FormBuilder) {
     const { name, age } = this.person;
     let both = [...this.students, ...this.parents];
 
     this.youtube.subscribe((res) => {
       console.log("SUSCRIBER 1: ", res);
     });
+
+
+    this.scoreControl.valueChanges.subscribe((res) => {
+      console.log('SCORE VALUE OBSERVABLE: ', res)
+    })
+
+    this.studentForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      score: [''],
+      school: [''],
+      proffesor: [''],
+      university: ['']
+    })
+
+    this.studentForm.valueChanges.subscribe((res) => {
+      console.log('FORM GROUP OBSERVABLE: ', res)
+    })
+  }
+
+  onSendData() {
+    console.log('FORM GROUP: ', this.studentForm)
   }
 
   public sumPure(a:number, b:number): number {
@@ -171,8 +202,13 @@ export class AppComponent {
   public onCalculator(){
     this.router.navigate(['cal'], {queryParams: {name: 'John', age: 20}})
   }
-
+  
   onSubmit(data:any){
     console.log('TEMPLATE DRIVEN FORM: ', data)
   }
+
+  onPrintScore(){
+    console.log('SCORE: ', this.scoreControl.value)
+  }
+
 }
