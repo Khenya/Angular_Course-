@@ -1,85 +1,86 @@
-<p>PIPES</p>
-
-<P> {{ users | json }} </P>
-<p> {{ 'juan' | uppercase }} </p>
-<p> {{ 'JUAN' | lowercase }} </p>
-<p> {{ 'hola mundo' | titlecase }}</p>
-<p> {{ 'Tue Oct 27 15:35:08 CDT 2009' | date: 'dd/MM/YYYY'  }} </p>
-
-<p> MY FISRT PIPE PURE </p>
-<p>{{ students | pure }}</p>
-<p> MY FIRST PIPE IMPURE</p>
-<p>{{ students | impure }}</p>
-
-
-<button (click)="students.push(12)">add neew number</button>
-<button (click)="addNumber()">add neew number in ts</button>
-
 <mat-card class="example-card" appearance="outlined">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <form #testForm="ngForm" (ngSubmit)="onSubmit(testForm)">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Shiba Inu</mat-card-title>
+    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <form #testForm="ngForm" (ngSubmit)="onSubmit(testForm)">
+      <p>name</p>
+      <input type="text" 
+      #nameT="ngModel" 
+      name="nameF"
+       ngModel 
+       required>
+      <div *ngIf="nameT.invalid && nameT.touched" style="color: red">
+        THERE IS AN ERROR
+      </div>
+      <p>{{ nameT.invalid | json }}</p>
+      <p>{{ nameT.touched | json }}</p>
+
+      <p>lastName</p>
+      <input type="text" ngModel name="lastNameF">
+      <p>age</p>
+      <input type="text" ngModel name="ageF">
+      <p>city</p>
+      <input type="text" ngModel name="cityF">
+      <p>phone</p>
+      <input type="text" ngModel name="phoneF">
+      <button type="submit">send data</button>
+      <button type="reset">reset</button>
+    </form>  
+
+      <p>REACTIVE FORM</p>
+      <input type="text" [formControl]="scoreControl">
+      <button (click)="onPrintScore()">print score</button>
+
+      <p>FORM GROUP</p>
+      <form [formGroup]="studentForm">
         <p>name</p>
-        <input type="text" ngModel name="nameF">
-        <p>lastName</p>
-        <input type="text" ngModel name="lastNameF">
-        <p>age</p>
-        <input type="text" ngModel name="ageF">
-        <p>city</p>
-        <input type="text" ngModel name="cityF">
-        <p>phone</p>
-        <input type="text" ngModel name="phoneF">
-        <button type="submit">send data</button>
-        <button type="reset">reset</button>
-
-        <p>REACTIVE FORM</p>
-        <input type="text" [formControl]="scoreControl">
-        <button (click)="onPrintScore()">print score</button>
-
-        <p>FORM GROUP</p>
-        <form [formGroup]="studentForm">
-          <p>name</p>
-          <input type="text" [formControlName]="'name'">
-          <p>score</p>
-          <input type="text" [formControlName]="'score'">
-          <p>school</p>
-          <input type="text" [formControlName]="'school'">
-          <p>proffesor</p>
-          <input type="text" [formControlName]="'proffesor'">
-          <p>university</p>
-          <input type="text" [formControlName]="'university'">
-        </form>
-        <button (click)="onSendData()"
-        [disabled]="studentForm.invalid">send data</button>
-
-
+        <input type="text" [formControlName]="'name'">
+        <!-- <div *ngIf="studentForm.get('name')?.errors?.required">
+          name is required
+        </div> -->
+        <div *ngIf="studentForm.get('name')?.invalid && studentForm.get('name')?.touched">
+          name is required
+        </div>
+        <button (click)="print()">print name control</button>
+        <p>score</p>
+        <input type="text" [formControlName]="'score'">
+        <p>school</p>
+        <input type="text" [formControlName]="'school'">
+        <p>proffesor</p>
+        <input type="text" [formControlName]="'proffesor'">
+        <p>university</p>
+        <input type="text" [formControlName]="'university'">
       </form>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
+      <button (click)="onSendData()"
+      [disabled]="studentForm.invalid">send data</button>
 
-  <h1 class="text-sm font-bold underline text-red-800">
-    Hello world TAILWIND
-  </h1>
 
-  <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-  </div>
-  <div class="mb-3">
-    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
+    
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
 
-  <button type="button" class="btn btn-primary">Primary</button>
+<h1 class="text-sm font-bold underline text-red-800">
+  Hello world TAILWIND
+</h1>
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+
+<button type="button" class="btn btn-primary">Primary</button>
 <button type="button" class="btn btn-secondary">Secondary</button>
 <button type="button" class="btn btn-success">Success</button>
 <button type="button" class="btn btn-danger">Danger</button>
@@ -116,6 +117,6 @@ Calculator QP from TS
 <button type="button" class="btn btn-secondary" (click)="goToStudentModule()"> from TS to Student Module </button>
 
 <div style="border: 4cqmax solid greenyellow;height: 500px; width: 500px;">
-  <router-outlet>
-  </router-outlet>
+<router-outlet>
+</router-outlet>
 </div>
