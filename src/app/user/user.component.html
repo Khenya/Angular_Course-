@@ -2,6 +2,10 @@
   <h3>{{ user.name }}</h3>
   <p>Age: {{ user.age }}</p>
   <p>Status: {{ user.status }}</p>
-  <p>Subscription: {{ user.subscriptionType }}</p>
+  <div class="subscription-buttons">
+    <p>Subscription: </p>
+    <button [ngClass]="{'active-free-button': user.subscriptionType === 'free', 'inactive-button': user.subscriptionType !== 'free'}" (click)="setSubscriptionType('free')">Free</button>
+    <button [ngClass]="{'active-premium-button': user.subscriptionType === 'premium', 'inactive-button': user.subscriptionType !== 'premium'}" (click)="setSubscriptionType('premium')">Premium</button>
+  </div>
   <p>Amount Available: ${{ user.amountAvailable }}</p>
 </div>

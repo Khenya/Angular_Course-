@@ -1,1 +1,29 @@
-
+.subscription-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .active-free-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .active-premium-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .inactive-button {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  

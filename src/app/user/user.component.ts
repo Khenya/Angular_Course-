@@ -6,8 +6,13 @@ import { CommonModule } from '@angular/common';
   standalone: true,  
   imports: [CommonModule],  
   templateUrl: './user.component.html',
+  styleUrls: ['./user.component.scss']
  
 })
 export class UserComponent {
-  @Input() user: any;  
+  @Input() user: any;
+
+  setSubscriptionType(type: string) {
+    this.user.subscriptionType = type;
+  }
 }
