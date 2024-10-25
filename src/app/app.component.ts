@@ -9,7 +9,7 @@ import { data, socialNetworks } from './data';
   standalone: true,  
   imports: [CommonModule, UserComponent, NotificacionesComponent],  
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 
 export class AppComponent {
@@ -23,7 +23,7 @@ export class AppComponent {
     if (!platform) return;
 
     this.users.forEach((user) => {
-      if (user.subscriptions.includes(platformId)) {
+      if (user.status === 'active' && user.subscriptions.includes(platformId)) {
         if (platform.platformType === 'premium' && user.subscriptionType === 'premium') {
           if (user.amountAvailable > 0) {
             user.notifications.push(`${platform.platform} added a new ${platform.type}`);
