@@ -32,7 +32,6 @@ interface IForm {
     RouterOutlet,
     RouterLink,
     UserCardComponent,
-    CalculatorComponent,
     CommonModule,
     CounterComponent,
     AppColorsDirective,
