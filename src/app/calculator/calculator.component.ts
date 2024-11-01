@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../student/auth.service';
 
 @Component({
   selector: 'calculator',
