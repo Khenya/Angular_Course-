@@ -116,14 +116,6 @@ export class AppComponent {
       university: ['']
     })
 
-    /* this.studentForm = new FormGroup({
-      name: new FormControl<string>('sdasdasdasd', [Validators.required]),
-      score: new FormControl<string>('sdfsdfsdf'),
-      school: new FormControl<string>(''),
-      proffesor: new FormControl<string>(''),
-      university: new FormControl<string>('')
-    }) */
-
     this.studentForm.valueChanges.subscribe((res) => {
       console.log('FORM GROUP OBSERVABLE: ', res)
     })
