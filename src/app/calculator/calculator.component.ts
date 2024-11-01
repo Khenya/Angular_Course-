@@ -33,7 +33,6 @@ export class CalculatorComponent implements OnInit {
   @Output() reset = new EventEmitter()
 
   constructor(private _activatedRoute: ActivatedRoute,
-              private _authService: AuthService,
               private _router: Router
   ) { }
 
@@ -60,7 +59,6 @@ export class CalculatorComponent implements OnInit {
   }
 
   onLogin(){
-    this._authService.login()
     this._router.navigate(['/student'])
   }
 
