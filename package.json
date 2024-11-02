@@ -1,12 +1,14 @@
 {
-  "name": "angular-course",
+  "name": "angular-course-2024",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "firebase:deploy": "ng build && firebase deploy",
+    "s3:deploy": "ng build && aws s3 sync ./dist/browser s3://angular-course-2024-project --profile rsoft-latam"
   },
   "private": true,
   "dependencies": {
@@ -16,12 +18,11 @@
     "@angular/compiler": "^18.2.0",
     "@angular/core": "^18.2.0",
     "@angular/forms": "^18.2.0",
-    "@angular/material": "^18.2.9",
+    "@angular/material": "^18.2.8",
     "@angular/platform-browser": "^18.2.0",
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
     "bootstrap": "^5.3.3",
-    "firebase": "^11.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"

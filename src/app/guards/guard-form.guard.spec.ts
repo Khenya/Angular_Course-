@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { CanDeactivateFn } from '@angular/router';
 
-import { authFormGuard } from './auth-form.guard';
+import { authFormGuard } from './guard-form.guard';
 
 describe('authFormGuard', () => {
   const executeGuard: CanDeactivateFn = (...guardParameters) => 
