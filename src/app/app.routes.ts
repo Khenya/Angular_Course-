@@ -3,6 +3,7 @@ import { UserCardComponent } from './user-card/user-card.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { AuthGuard } from './guards/auth.guard';
 import { GuardForm } from './guards/guard-form.guard';
+import { LoadGuard } from './guards/load.guard';
 
 export const routes: Routes = [
     {
