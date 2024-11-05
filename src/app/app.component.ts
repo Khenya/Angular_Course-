@@ -13,6 +13,7 @@ import {MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from "@angular/material/button";
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { StudentService } from "./services/student.service";
+import { AuthService } from "./auth.service";
 
 interface IPerson {
   name: string;
@@ -87,6 +88,7 @@ export class AppComponent {
   student2Form!: UntypedFormGroup
 
   constructor(
+    private _authService: AuthService,
     private _studentService: StudentService,
     private router: Router, 
     private formBuilder: FormBuilder,
@@ -133,11 +135,16 @@ export class AppComponent {
       university: new FormControl<string>('')
     }) */
 
-    this.studentForm.valueChanges.subscribe((res) => {
-      console.log('FORM GROUP OBSERVABLE: ', res)
-    })
+    // this.studentForm.valueChanges.subscribe((res) => {
+    //   console.log('FORM GROUP OBSERVABLE: ', res)
+    // })
   }
 
+  onLogin(){
+    this._authService.login()
+    this.router.navigate(['student'])
+  }
+  
   print(){
     console.log('FORM NAME: ', this.studentForm.get('name'))
   }

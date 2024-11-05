@@ -1,12 +1,15 @@
+/* import { HttpInterceptorFn } from '@angular/common/http';
+
+export const authInterceptor: HttpInterceptorFn = (req, next) => {
+  return next(req);
+};
+ */
+
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { AuthService } from "../auth.service";
 import { Injectable } from "@angular/core";
-// import { HttpInterceptorFn } from '@angular/common/http';
 
-// export const authInterceptor: HttpInterceptorFn = (req, next) => {
-//   return next(req);
-// };
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
@@ -16,6 +19,8 @@ export class AuthInterceptor implements HttpInterceptor {
 
       const token = this._authService.getToken();
 
+      console.log('token: ', token)
+      console.log('REQ:', req)
       if(token){
         const cloned = req.clone({
           headers: req.headers.set('Authorization', 'Bearer ' + token)
@@ -26,4 +31,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
       return next.handle(req);
     }
+        
+    
+
 }
