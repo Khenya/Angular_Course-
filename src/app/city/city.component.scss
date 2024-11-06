@@ -20,3 +20,13 @@ input{
     margin: 8px;
 }
 
+ul {
+    list-style-type: none; 
+    padding: 18;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+  }
+  

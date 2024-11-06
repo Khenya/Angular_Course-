@@ -5,8 +5,8 @@
         <button class="button" (click)="filterCities()">Search</button>
     </div>
     <ul>
-        <li *ngFor="let city of cities" (click)="deleteCity(city.name)">
-            {{ city.name }}
+        <li *ngFor="let city of cities; let i = index" (click)="deleteCity(city.name)">
+            {{ i + 1 }}. {{ city.name }}
         </li>
     </ul>
 
