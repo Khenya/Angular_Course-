@@ -1,0 +1,12 @@
+<div>
+    <input [(ngModel)]="filterQuery" placeholder="Filter cities" (input)="filterCities()" />
+    <ul>
+        <li *ngFor="let city of cities" (click)="deleteCity(city.name)">
+            {{ city.name }}
+        </li>
+    </ul>
+
+    <input [(ngModel)]="newCityName" placeholder="Add new city" />
+    <button (click)="addCity()">Add City</button>
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+</div>
