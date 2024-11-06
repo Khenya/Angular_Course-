@@ -1,5 +1,9 @@
 <div>
-    <input [(ngModel)]="filterQuery" placeholder="Filter cities" (input)="filterCities()" />
+    <div>
+        <h1>Cities</h1>
+        <input [(ngModel)]="filterQuery" placeholder="Filter cities" />
+        <button class="button" (click)="filterCities()">Search</button>
+    </div>
     <ul>
         <li *ngFor="let city of cities" (click)="deleteCity(city.name)">
             {{ city.name }}
@@ -10,3 +14,4 @@
     <button (click)="addCity()" class="button">Add City</button>
     <app-error-message [message]="errorMessage" [duration]="3000"></app-error-message>
 </div>
+
