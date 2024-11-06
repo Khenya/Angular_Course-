@@ -7,6 +7,6 @@
     </ul>
 
     <input [(ngModel)]="newCityName" placeholder="Add new city" />
-    <button (click)="addCity()">Add City</button>
+    <button (click)="addCity()" class="button">Add City</button>
     <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
 </div>
