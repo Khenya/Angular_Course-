@@ -8,5 +8,5 @@
 
     <input [(ngModel)]="newCityName" placeholder="Add new city" />
     <button (click)="addCity()" class="button">Add City</button>
-    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    <app-error-message [message]="errorMessage" [duration]="3000"></app-error-message>
 </div>

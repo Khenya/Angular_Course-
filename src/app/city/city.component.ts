@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 import { CityService } from '../city.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ErrorMessageComponent } from '../error-message/error-message.component';
+import { Component, OnInit } from '@angular/core';
 
 interface City {
   id: number;
@@ -11,10 +12,11 @@ interface City {
 @Component({
   selector: 'app-city',
   standalone: true, 
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ErrorMessageComponent],
   templateUrl: './city.component.html',
   styleUrls: ['./city.component.scss']
 })
+
 export class CityComponent implements OnInit {
   cities: City[] = [];  
   newCityName: string = '';
